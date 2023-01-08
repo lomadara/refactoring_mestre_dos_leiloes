@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mestre dos leilões</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/higlights_card_style.css') }}">
+        <script src="{{ url_for('static', filename='script/carousel.js') }}"></script>
+    </head>
+
+    <body>
+        <h3>LEILÕES EM DESTAQUE</h3>
+        <ol>
+            <div class="carousel">
+                {%for i in range(0, len)%}
+                    <div id="{{ "card_id" ~ i }}" class="card_carousel">
+                        <div class="row_image_carousel">
+                            <div class="type">
+                                <p>
+                                    {{houses[i]['auction_type']}}
+                                </p>
+                            </div>
+                            <img src="{{url_for('static', filename=houses[i]['image'])}}" alt="" class="image_carousel">
+                            <div class="property_name">
+                                <p>
+                                    {{houses[i]['property_name']}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row_text_carousel">
+                            <p class="text_carousel">
+                                {{houses[i]['property_address']}}
+                            </p>
+                        </div>
+                        <div class="row_text_carousel">
+                            <p class="text_carousel">
+                                {{houses[i]['offer_1']}}
+                            </p>
+                        </div>
+                        <div class="row_text_carousel">
+                            <p class="text_carousel">
+                                {{houses[i]['offer_2']}}
+                            </p>
+                        </div>
+                        <div class="row_text_carousel">
+                            <p class="text_carousel">
+                                {{houses[i]['evaluation']}}
+                            </p>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+            <div class="search">
+                <h1>ONDE VOCÊ GOSTARIA DE FAZER O SEU PRÓXIMO INVESTIMENTO?</h1>
+            </div>
+        </ol>
+
+    </body>
+</html>
