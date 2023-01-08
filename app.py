@@ -54,7 +54,3 @@ def highlights():
         },
     ]
     return render_template('highlights.html', len = len(houses), houses = houses)
-
-@app.route('/card_description/<int:image_code>', methods=['GET'])
-def lionel(image_code):
-    return render_template('card_description.html', image_code="{}.jpg".format(image_code))
