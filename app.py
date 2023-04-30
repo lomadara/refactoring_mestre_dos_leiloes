@@ -1,6 +1,6 @@
 from instance import server
 from flask import render_template
-from src.controllers.liveness_controller import LivenessController
+from src.constants import states_constant, property_types_constant, auction_types_constant
 
 app = server.app
 
@@ -53,4 +53,17 @@ def highlights():
             'evaluation': 'Avaliação: R$ 1.201.496,13'
         },
     ]
-    return render_template('highlights.html', len = len(houses), houses = houses)
+
+    return render_template(
+        'highlights.html',
+        len = len(houses),
+        houses = houses,
+        property_types = property_types_constant.property_types,
+        auction_types = auction_types_constant.auction_types,
+        states = states_constant.states
+    )
+
+
+@app.route('/sobre', methods=['GET'])
+def about():
+    return render_template('about.html')

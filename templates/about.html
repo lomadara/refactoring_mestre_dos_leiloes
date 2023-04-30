@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+       
+{% block content %}      
+    <div class="about_background"></div>
+    <div class="about_informations">
+        <div class="about_column">
+            <div class="about_header">
+                <h3>BEM VINDO AO MESTRE DOS LEILÕES</h3>
+                <p>O melhor lugar para seu investimento. Multiplique seu Investimento de forma Rápida e Segura</p>
+            </div>
+            
+            <div class="about_icon">
+                <img src="{{url_for('static', filename='images/chooseus-iconb-1.png')}}" alt="icon">
+            </div>
+            
+            <div class="about_motives">
+                <h4>5 Motivos para você investir em leilão com a nossa assessoria</h4>
+                <p> > Risco zero em seu investimento.</p>
+                <p> > Lucro acima da média no mercado.</p> 
+                <p> > Você receberá o seu imóvel vago e registrado em seu nome.</p>
+                <p> > Segurança e comodidade para arrematar.</p>
+                <p> > Indicação dos melhores negócios e analise mercadológica.</p>
+            </div>
+            
+            <div class="about_icon">
+                <img src="{{url_for('static', filename='images/chooseus-iconb-2.png')}}" alt="icon">
+            </div>
+            
+            <div class="about_motives">
+                <h4>Ganhos que superam os principais índices do mercado tradicional.</h4>
+                <p> > A maioria dos brasileiros investe mal, satisfaz-se com lucros irrisórios, e ainda paga por isto.</p>
+                <p> > Há uma confusão entre investir e economizar: Investir é o que te fazes ganhar dinheiro, economizar é o que te fazes perder dinheiro.</p> 
+            </div>
+            
+            <div class="about_icon">
+                <img src="{{url_for('static', filename='images/chooseus-iconb-3.png')}}" alt="icon">
+            </div>
+            
+            <div class="about_motives">
+                <h4>Por que investir em leilão de imóveis?</h4>
+                <p> > Um dos investimentos mais seguros do mercado.</p>
+                <p> > Imóveis oriundos de Leilões Judiciais (tribunais de Justiça).</p>
+                <p> > Imóveis oriundos de Leilões Extrajudiciais (CEF, Bradesco, Itaú, Santander, dentre outros).</p>
+                <p> > Estudo e direcionamento ideal na liquidez do imóvel arrematado.</p>
+            </div>
+        </div>
+        <div class="about_column">
+            <div class="i_am_intrested">
+                <img src="{{url_for('static', filename='images/105982872_1196013277445862_8357377092337653533_n.jpg')}}" alt="I'm interested">
+            </div>
+
+            <div class="i_am_intrested_form">
+                <form action="">
+                    <h3>TENHO INTERESSE</h3>
+                    <input type="text" class="name_field" placeholder="Nome">
+                    <input type="text" class="phone_field" placeholder="Telefone">
+                    <input type="text" class="email_field" placeholder="Email">
+                    <input type="text" class="message_field" placeholder="Mensagem">
+                    <button>enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,57 +1,198 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mestre dos leilões</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/higlights_style.css') }}">
-        <script src="{{ url_for('static', filename='script/carousel.js') }}"></script>
-    </head>
+{% extends 'base.html' %}
 
-    <body>
+{% block content %}
+    <ol class="highlights">
         <h3>LEILÕES EM DESTAQUE</h3>
-        <ol>
-            <div class="carousel">
-                {%for i in range(0, len)%}
-                    <div id="{{ "card_id" ~ i }}" class="card_carousel">
-                        <div class="row_image_carousel">
-                            <div class="type">
-                                <p>
-                                    {{houses[i]['auction_type']}}
-                                </p>
-                            </div>
-                            <img src="{{url_for('static', filename=houses[i]['image'])}}" alt="" class="image_carousel">
-                            <div class="property_name">
-                                <p>
-                                    {{houses[i]['property_name']}}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row_text_carousel">
-                            <p class="text_carousel">
-                                {{houses[i]['property_address']}}
+        <div class="carousel">
+            {%for i in range(0, len)%}
+                <div id="{{ "card_id" ~ i }}" class="card_carousel">
+                    <div class="row_image_carousel">
+                        <div class="type">
+                            <p>
+                                {{houses[i]['auction_type']}}
                             </p>
                         </div>
-                        <div class="row_text_carousel">
-                            <p class="text_carousel">
-                                {{houses[i]['offer_1']}}
-                            </p>
-                        </div>
-                        <div class="row_text_carousel">
-                            <p class="text_carousel">
-                                {{houses[i]['offer_2']}}
-                            </p>
-                        </div>
-                        <div class="row_text_carousel">
-                            <p class="text_carousel">
-                                {{houses[i]['evaluation']}}
+                        <img src="{{url_for('static', filename=houses[i]['image'])}}" alt="" class="image_carousel">
+                        <div class="property_name">
+                            <p>
+                                {{houses[i]['property_name']}}
                             </p>
                         </div>
                     </div>
-                {%endfor%}
+                    <div class="row_text_carousel">
+                        <p class="text_carousel">
+                            {{houses[i]['property_address']}}
+                        </p>
+                    </div>
+                    <div class="row_text_carousel">
+                        <p class="text_carousel">
+                            {{houses[i]['offer_1']}}
+                        </p>
+                    </div>
+                    <div class="row_text_carousel">
+                        <p class="text_carousel">
+                            {{houses[i]['offer_2']}}
+                        </p>
+                    </div>
+                    <div class="row_text_carousel">
+                        <p class="text_carousel">
+                            {{houses[i]['evaluation']}}
+                        </p>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+        <div class="search">
+            <h1>ONDE VOCÊ GOSTARIA DE FAZER O SEU PRÓXIMO INVESTIMENTO?</h1>
+            <div class="auction_search_form">
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">ESTADO</p>
+                    <select class="auction_search_select" name="state" id="state" form="carform">
+                        {%for state in states%}
+                            <option value="{{state['id']}}">
+                                {{state['text']}}
+                            </option>
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">CIDADE</p>
+                    <select class="auction_search_select" name="cars" id="cars" form="carform">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">BAIRRO</p>
+                    <input class="auction_search_text" type="text">
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">TIPO DE PROPRIEDADE</p>
+                    <select class="auction_search_select" name="property_type" id="property_type" form="carform">
+                        {%for property_type in property_types%}
+                            <option value="{{property_type['id']}}">
+                                {{property_type['text']}}
+                            </option>
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">TIPO DE LEILÃO</p>
+                    <select class="auction_search_select" name="auction_type" id="auction_type" form="carform">
+                        {%for auction_type in auction_types%}
+                            <option value="{{auction_type['id']}}">
+                                {{auction_type['text']}}
+                            </option>
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">QTD DE BANHEIROS</p>
+                    <input class="auction_search_text" type="text">
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">QTD DE QUARTOS</p>
+                    <input class="auction_search_text" type="text">
+                </div>
+
+                <div class="auction_search_input_type_text_content">
+                    <p class="auction_search_text_title">VAGAS PARA VEÍCULOS</p>
+                    <input class="auction_search_text" type="text">
+                </div>
+
+                <div>
+                    <p class="auction_search_range_title">VALOR R$ 0,00</p>
+                    <input class="auction_search_range" type="range" id="volume" name="volume"min="0" max="11">
+                </div>
+
+                <div>
+                    <p class="auction_search_range_title">METRAGEM m²</p>
+                    <input class="auction_search_range" type="range" id="volume" name="volume"min="0" max="11">
+                </div>
+
+                <div></div>
+                <div></div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Dormitórios</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Suítes</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Garagem</p>
+                </div>
+                
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Piscina</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">              
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Piscina Aquecida</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Espaço Gourmet</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Garagem Coberta</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Academia</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">SPA</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Office Space</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Espaço Pet</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Espaço Kids</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Lavanderia</p>
+                </div>
+
+                <div class="auction_search_input_type_checkbox_content">
+                    <input class="auction_search_checkbox" type="checkbox">
+                    <p class="auction_serach_checkbox_title">Quintal</p>
+                </div>
             </div>
-            <div class="search">
-                <h1>ONDE VOCÊ GOSTARIA DE FAZER O SEU PRÓXIMO INVESTIMENTO?</h1>
-            </div>
-        </ol>
-    </body>
-</html>
+
+            <button class="auction_search_button">PROCURAR</button>
+        </div>
+    </ol>
+{% endblock %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mestre dos leilões</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/higlights_style.css') }}">
+        <script src="{{ url_for('static', filename='script/carousel.js') }}"></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="navigation-bar">
+                <button class="navigation_button">LOTES EM DESTAQUE</button>
+                <button class="navigation_button">IMOVEIS</button>
+                <button class="navigation_button">SOBRE A EMPRESA</button>
+                <button class="navigation_button">COMO INVESTIR ?</button>
+                <button class="navigation_button">CONTATO</button>
+            </div>
+        </div>
+
+        {% block content %} {% endblock %}
+        
+        <div class="localization_and_contact">
+            <div class="address_coll">
+                <div class="address_row">
+                    <img class="address_icon" alt="" src="{{url_for('static', filename='assets/map-marker-alt-solid.svg')}}">
+                    <p class="address_row_text">Sede - São Paulo: R. Napoleão de Barros, 249 - Vila Clementino, São Paulo - SP</p>
+                </div>
+                <div class="address_row">
+                    <img class="address_icon" alt="" src="{{url_for('static', filename='assets/map-marker-alt-solid.svg')}}">
+                    <p class="address_row_text">Filial - Americana: R. dos Cajueiros, 84 -Res. Vale das Nogueiras, Americana - SP</p>
+                </div>
+                <div class="address_row">
+                    <a class="address_row_a" href="tel:551135545993">
+                        <img class="address_icon" alt="" src="{{url_for('static', filename='assets/phone-solid.svg')}}">
+                        <p class="address_row_text">+55 (11) 3554-5993</p>
+                    </a>
+                </div>
+                <div class="address_row">
+                    <a class="address_row_a" href="https://api.whatsapp.com/send?phone=5511945448055&amp;text=Ol%C3%A1,%20tudo%20bem?." target="_blank">
+                        <img class="address_icon" alt="" src="{{url_for('static', filename='assets/whatsapp-brands.svg')}}">
+                        <p class="address_row_text">+55 (11) 94544-5055</p>
+                    </a>
+                </div>
+                <div class="address_row">
+                    <a class="address_row_a" href="https://api.whatsapp.com/send?phone=5511984060287&amp;text=Ol%C3%A1,%20tudo%20bem?." target="_blank">
+                        <img class="address_icon" alt="" src="{{url_for('static', filename='assets/whatsapp-brands.svg')}}">
+                        <p class="address_row_text">+55 (11) 98406-0287</p>
+                    </a>
+                </div>
+                <div class="address_row">
+                    <a class="address_row_a" href="mailto:contato@mestredosleiloes.com.br">
+                        <img class="address_icon" alt="" src="{{url_for('static', filename='assets/envelope-solid.svg')}}">
+                        <p class="address_row_email_text">contato@mestredosleiloes.com.br</p>
+                    </a>
+                </div>
+
+            </div>
+            <div class="map_coll">
+                <iframe allowfullscreen="" height="450" width="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.305887184839!2d-46.64557938502162!3d-23.593360284666964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a266fa42537%3A0x1373ed009ab68a2!2sR.%20Napole%C3%A3o%20de%20Barros%2C%20249%20-%20Vila%20Clementino%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004024-000!5e0!3m2!1spt-BR!2sbr!4v1589310675379!5m2!1spt-BR!2sbr" style="border:0;"></iframe>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_coll">
+                <img class="footer_logo" alt="" src="{{url_for('static', filename='assets/logobw.png')}}">
+                <p class="footer_text">Somos especialistas em análise do mercado de imóveis em leilão. Advogados e Analistas trabalhando juntos para você fazer o melhor negócio.</p>
+            </div>
+            <div class="footer_coll footer_white_border">
+                <h4 class="footer_h4">Links</h4>
+                <p class="footer_text">Home</p>
+                <p class="footer_text">contato</p>
+                <p class="footer_text">imoveis</p>
+                <p class="footer_text">sobre</p>
+                <p class="footer_text">como investir ?</p>
+            </div>
+            <div class="footer_coll footer_white_border">
+                <a class="footer_a" href="https://facebook.com/mestredosleiloes" target="_blank">
+                    <img class="social_media_icon" alt="" src="{{url_for('static', filename='assets/facebook-square-brands.svg')}}">
+                </a>
+                <a class="footer_a" href="instagram.com/mestre_dos_leiloes" target="_blank">
+                    <img class="social_media_icon" alt="" src="{{url_for('static', filename='assets/instagram-brands.svg')}}">
+                </a>
+                <a class="footer_a" href="https://albertkaproski.wixsite.com/marketingup" target="_blank">
+                    <p>Copyright © 2020 MarketingUP. Todos os direitos reservados.</p>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
